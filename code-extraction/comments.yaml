@@ -1,0 +1,168 @@
+# ==============================================================================
+# C-STYLE FAMILY
+# Common syntax: // for lines, /* ... */ for blocks
+# Used by: C, C++, C#, Java, JS, Rust, Go, etc.
+# ==============================================================================
+c: &c_style
+  - "//"
+  - ["/*", "*/"]
+
+cpp: *c_style
+cc: *c_style
+h: *c_style
+hpp: *c_style
+cs: *c_style        # C#
+java: *c_style
+js: *c_style        # JavaScript
+mjs: *c_style
+ts: *c_style        # TypeScript
+jsx: *c_style
+tsx: *c_style
+rs: *c_style        # Rust
+go: *c_style
+kt: *c_style        # Kotlin
+kts: *c_style
+swift: *c_style
+dart: *c_style
+scala: *c_style
+groovy: *c_style
+css: *c_style       # CSS (technisch treated as block, but widely used)
+scss: *c_style
+less: *c_style
+jsonc: *c_style     # JSON with comments
+typ: *c_style       # Typst
+
+# ==============================================================================
+# HASH FAMILY
+# Common syntax: # for lines
+# Used by: Python, Ruby, Shell, YAML, TOML, etc.
+# ==============================================================================
+py: &hash_style
+  - "#"
+
+# Scripting
+rb: *hash_style     # Ruby
+pl: *hash_style     # Perl
+sh: *hash_style     # Bash / Shell
+bash: *hash_style
+zsh: *hash_style
+ps1: *hash_style    # PowerShell (ignoring <# #> for simplicity)
+r: *hash_style
+el: *hash_style     # Elixir
+
+# Config & Data
+yaml: *hash_style
+yml: *hash_style
+toml: *hash_style
+dockerfile: *hash_style
+makefile: *hash_style
+conf: *hash_style
+gitignore: *hash_style
+tf: *hash_style     # Terraform
+
+# ==============================================================================
+# DASH FAMILY
+# Common syntax: -- for lines
+# Used by: SQL, Haskell, Lua, Ada
+# ==============================================================================
+sql: &sql_style
+  - "--"
+  - ["/*", "*/"]
+
+lua: &lua_style
+  - "--"
+  - ["--[[", "]]"]
+
+hs: &haskell_style
+  - "--"
+  - ["{-", "-}"]
+
+ada: &dash_only
+  - "--"
+
+vhdl: *dash_only
+elm: *dash_only
+
+# ==============================================================================
+# XML FAMILY
+# Common syntax: <!-- ... --> (No line comments)
+# ==============================================================================
+xml: &xml_style
+  - ["<!--", "-->"]
+
+html: *xml_style
+htm: *xml_style
+svg: *xml_style
+md: *xml_style      # Markdown allows HTML comments
+vue: *xml_style
+xaml: *xml_style    # WPF
+axaml: *xml_style   # Avalonia
+# MSBuild
+csproj: *xml_style
+fsproj: *xml_style
+vbproj: *xml_style
+shproj: *xml_style
+targets: *xml_style
+props: *xml_style
+vcxproj: *xml_style
+
+# ==============================================================================
+# PERCENT FAMILY
+# Common syntax: % for lines
+# Used by: LaTeX, Erlang, MATLAB
+# ==============================================================================
+tex: &percent_style
+  - "%"
+
+sty: *percent_style
+cls: *percent_style
+bib: *percent_style
+erl: *percent_style
+hrl: *percent_style
+
+matlab:             # MATLAB / Octave
+  - "%"
+  - ["%{", "%}"]
+
+# ==============================================================================
+# HYBRIDS & EXOTICS
+# ==============================================================================
+php:
+  - "//"
+  - ["/*", "*/"]
+  - "#"
+
+razor: &razor_style # ASP.NET Razor
+  - "//"            # C# style
+  - ["/*", "*/"]
+  - ["@*", "*@"]    # Razor specific
+cshtml: *razor_style
+vbhtml:
+  - "'"             # VB style
+  - ["@*", "*@"]    # Razor specific
+
+bat: &bat_style           # Windows Batch / CMD
+  - "REM"
+  - "::"
+cmd: *bat_style
+
+vb: &vb_style       # Visual Basic / VBA
+  - "'"
+  - "REM"
+
+vbs: *vb_style
+
+clj: &lisp_style    # Clojure / Lisp
+  - ";"
+
+lisp: *lisp_style
+lsp: *lisp_style
+scm: *lisp_style    # Scheme
+rkt: *lisp_style    # Racket
+
+f90:                # Modern Fortran
+  - "!"
+
+ini:                # INI files
+  - ";"
+  - "#"
