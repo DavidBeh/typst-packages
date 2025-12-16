@@ -2,9 +2,6 @@
 #import "@preview/t4t:0.4.3"
 #import "comments.typ"
 
-
-
-
 /// Documents the given content using tidy and zebraw.
 ///
 /// -> content

@@ -72,11 +72,6 @@
   ///
   /// -> function
   region_starter,
-) = {}
-
-#extract_lines(read("test.cs"), pattern_region_opener((), text => {
-
-}))
-
-
-#print_docs("", read("./code-extraction.typ"))
+) = {
+  panic("not implemented")
+}

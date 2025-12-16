@@ -1,4 +1,7 @@
 // LTeX: enabled=false
+
+// Original implementation.
+
 #import "@preview/codly:1.3.0": *
 #import "@preview/codly-languages:0.1.1": *
 #import "@preview/oxifmt:1.0.0": strfmt
