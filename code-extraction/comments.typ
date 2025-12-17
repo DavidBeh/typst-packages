@@ -6,28 +6,25 @@
 
 #let a = 2;
 
-/// Returns the type of comment syntax: `block` for block comments, which is an array of two strings [start, end], or `line` for line comments, which is a single string.
+/// Returns the type of comment syntax.
 ///
-/// *Example:*
-///
-/// ```typ
-/// #assert.eq(get_comment_syntax_type(("/*", "*/")), block);
-/// // std can be added to avoid collisions
-/// #assert.eq(get_comment_syntax_type("//"), std.line);
-/// ```
-///
-/// -> line | block | none
+/// ->  "line" | "block" | none
 #let get_comment_syntax_type(
-  /// The comment syntax to check. -> str | array of two str
+  /// The comment syntax to check. The following formats are supported:
+  ///
+  /// / `str`: for line comments, e.~g. ```typc "//"```
+  /// / `array of two str`: for block comments, e.~g. ```typc ("/*", "*/")```
+  ///
+  /// -> str | array
   syntax,
   /// If `true`, the function will return `none` instead of panicking on invalid input. -> bool
   dont_panic_invalid: false,
 ) = {
   if is-arr(synatx) and is-length(2) and test.all-of-type(str, ..syntax) {
-    return std.block
+    return "block"
   }
   if is-str(syntax) {
-    return std.line
+    return "line"
   }
   if dont_panic_invalid {
     return none

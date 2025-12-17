@@ -45,11 +45,11 @@
 }
 
 
-The following misses a space and the convential newline after program termination.
+The following misses a space and the convential newline after program termination. (Tag: `bug`). As line 6 it was commented out in the source file, it does appear the same in the code snippet, unfortunately.
 
 #includefile("test.cs", tag: "bug")
 
-This is fixed in the following:
+This is fixed in the following. (Tag: `fix`)
 
 #includefile("test.cs", tag: "fix")
 
